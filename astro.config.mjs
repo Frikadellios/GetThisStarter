@@ -5,7 +5,8 @@ import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
 import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import { DEFAULT_LOCALE, LOCALES, SITE_URL } from "./src/consts";
-import sveltiaCMS from "astro-sveltia-cms";
+import sveltiaCms from "astro-sveltia-cms";
+import yaml from '@rollup/plugin-yaml';
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import partytown from "@astrojs/partytown";
@@ -16,6 +17,9 @@ const locales = LOCALES;
 // https://astro.build/config
 export default defineConfig({
 	site: SITE_URL,
+  vite: {
+    plugins: [yaml()]
+  },
 	output: "server",
 	trailingSlash: "always",
 	build: {
