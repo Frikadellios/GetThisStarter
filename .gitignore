@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+.github
+bun.lockb
 
 # dependencies
 node_modules/
@@ -28,3 +30,6 @@ astro_tmp_pages_*
 
 # Service Worker
 dev-dist/
+
+.DS_Store
+\n.astro
