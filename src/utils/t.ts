@@ -3,7 +3,7 @@
  */
 
 import { getLocale } from "astro-i18n-aut";
-import { DEFAULT_LOCALE, LOCALES } from "@src/consts";
+import { DEFAULT_LOCALE, LOCALES } from "../consts";
 
 import it from "@locales/it.json";
 import en from "@locales/en.json";

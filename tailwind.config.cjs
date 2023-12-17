@@ -1,46 +1,82 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
-	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-	theme: {
-		extend: {
-			fontFamily: {
+  darkMode: ["class"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      fontFamily: {
 				/** Change here the font family */
 				sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
 			},
-			colors: {
-				/** Override here your primary colors */
-				primary: {
-					50: "#fef1f7",
-					100: "#fee5f0",
-					200: "#fecce3",
-					300: "#ffa2cb",
-					400: "#fe68a7",
-					500: "#f83c86",
-					600: "#e91f64",
-					700: "#ca0c47",
-					800: "#a70d3b",
-					900: "#8b1034",
-					950: "#55021a",
-				},
-				secondary: {
-					50: "#f4f7f7",
-					100: "#e2ebeb",
-					200: "#c8d9d8",
-					300: "#a1bfbf",
-					400: "#739c9d",
-					500: "#588182",
-					600: "#4c6c6e",
-					700: "#425a5c",
-					800: "#3b4d4f",
-					900: "#354244",
-					950: "#222d2f",
-				},
-			},
-		},
-	},
-	plugins: [require.resolve("prettier-plugin-astro")],
-	overrides: [
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+  plugins: [
+    require("tailwindcss-animate"),
+    require.resolve("prettier-plugin-astro")
+  ],
+  overrides: [
 		{
 			files: "*.astro",
 			options: {
@@ -48,5 +84,4 @@ module.exports = {
 			},
 		},
 	],
-	darkMode: "class",
-};
+}

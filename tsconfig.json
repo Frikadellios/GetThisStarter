@@ -24,34 +24,34 @@
     	"downlevelIteration": true,
     	"allowSyntheticDefaultImports": true,
     	"strictNullChecks": true,
-    	"baseUrl": "/workspaces/GetThisStarter/src",
+    	"baseUrl": ".",
    		"paths": {
-     	 "@src/*": [
-       		 "*"
-      		],
+			"@/*": [
+				"./src/*"
+			  ],
       	 "@lib/*": [
-        	"lib/*"
+        	"./src/lib/*"
       		],
-      "@components/*": [
-        "components/*"
-      ],
-      "@layouts/*": [
-        "layouts/*"
-      ],
+      	"@components/*": [
+        "./src/components/*"
+      	],
+      	"@layouts/*": [
+        	"./src/layouts/*"
+      	],
       "@styles/*": [
-        "styles/*"
+        "./src/styles/*"
       ],
       "@utils/*": [
-        "utils/*"
+        "./src/utils/*"
       ],
       "@pages/*": [
-        "pages/*"
+        "./src/pages/*"
       ],
       "@assets/*": [
-        "assets/*"
+        "./src/assets/*"
       ],
       "@locales/*": [
-        "locales/*"
+        "./src/locales/*"
       ]
     },
     "jsxImportSource": "react",

@@ -1,12 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import BlogHeader from "@components/blog/BlogHeader.astro";
-import { DEFAULT_LOCALE } from "@src/consts";
+import { DEFAULT_LOCALE } from "../../consts";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { getLocale, getLocaleUrlPrefix } from "astro-i18n-aut";
-import Container from "@src/components/Container.astro";
-import HeroImage from "@src/components/blog/HeroImage.astro";
+import Container from "@components/Container.astro";
+import HeroImage from "@components/blog/HeroImage.astro";
 
 const locale = getLocale(Astro.url) ?? DEFAULT_LOCALE;
 const localeUrlPrefix = getLocaleUrlPrefix(Astro.url);

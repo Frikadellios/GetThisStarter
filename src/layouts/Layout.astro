@@ -4,7 +4,8 @@ import { ViewTransitions } from "astro:transitions";
 import BaseHead from "@components/BaseHead.astro";
 import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import "@styles/globals.css";
 
 const locale = getLocale(Astro.url);
 
@@ -19,7 +20,24 @@ type Props = {
 
 const { image, title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props as Props;
 ---
-
+<script is:inline>
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+	const isDark = getThemePreference() === 'dark';
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+ 
+	if (typeof localStorage !== 'undefined') {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	}
+</script>
 <html lang={locale}>
 	<head>
 		<BaseHead title={title} description={description} image={image} />
