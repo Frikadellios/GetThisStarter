@@ -15,11 +15,12 @@
 		"jsx": "react-jsx",
 		"allowJs": true,
 		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
-		"composite": true,
-		"downlevelIteration": true,
-		"allowSyntheticDefaultImports": true,
+    	"forceConsistentCasingInFileNames": true,
+    	"skipLibCheck": true,
+    	"composite": true,
+    	"downlevelIteration": true,
+    	"allowSyntheticDefaultImports": true,
+    	"strictNullChecks": true,
 		"jsxImportSource": "react",
 		"baseUrl": ".",
 		"paths": {
@@ -33,6 +34,6 @@
 			}
 		]
 	},
-	"include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
+	"include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "./src/vite-env.d.ts", "tailwind.config.cjs"],
 	"exclude": ["node_modules", "dist"]
 }
