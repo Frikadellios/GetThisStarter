@@ -6,7 +6,7 @@ backend:
     name: github
     branch: main
     repo: Frikadellios/GetThisStarter
-    site_domain: devopsick.pages.dev
+    site_domain: https://devopsick.pages.dev
     base_url: https://devopsick.pages.dev/
     auth_endpoint: oauth
     automatic_deployments: true
