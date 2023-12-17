@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "astro dev --verbose",
     "start": "cd node_modules/sharp && bun install && cd ../../ && bun --bun run build",
-    "build": "npm run pwa:generate-assets && astro build --force",
+    "build": "npm run pwa:generate-assets && astro build",
     "preview": "astro preview --watch",
     "format": "prettier -w . --cache",
     "astro": "astro",
