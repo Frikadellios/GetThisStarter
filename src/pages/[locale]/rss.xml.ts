@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION, DEFAULT_LOCALE, LOCALES } from "../../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, DEFAULT_LOCALE, LOCALES } from "@/consts";
 
 /**
  * Generates an array of static paths for all supported locales.
@@ -10,6 +10,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, DEFAULT_LOCALE, LOCALES } from "../../con
 export function getStaticPaths() {
 	return Object.keys(LOCALES).map((locale) => ({ params: { locale } }));
 }
+export const prerender = true;
 
 /**
  * Generates an RSS feed for a specific locale.

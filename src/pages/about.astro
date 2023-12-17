@@ -1,9 +1,10 @@
 ---
-import translations from "@utils/t.ts";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/Container.astro";
+import translations from "@/utils/t.ts";
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/Container.astro";
 
 const t = translations(Astro.url);
+export const prerender = true;
 ---
 
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">

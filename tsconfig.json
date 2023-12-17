@@ -25,40 +25,15 @@
     	"allowSyntheticDefaultImports": true,
     	"strictNullChecks": true,
     	"baseUrl": ".",
-   		"paths": {
-			"@/*": [
-				"./src/*"
-			  ],
-      	 "@lib/*": [
-        	"./src/lib/*"
-      		],
-      	"@components/*": [
-        "./src/components/*"
-      	],
-      	"@layouts/*": [
-        	"./src/layouts/*"
-      	],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@locales/*": [
-        "./src/locales/*"
-      ]
-    },
-    "jsxImportSource": "react",
-	"plugins": [
-		{
-		  "name": "@astrojs/ts-plugin"
-		},
-	  ],
-  }
+    	"paths": {
+      		"@/*": ["./src/*"]
+   		 },
+    	"verbatimModuleSyntax": true,
+    	"jsxImportSource": "react",
+		"plugins": [
+			{
+		  	 "name": "@astrojs/ts-plugin"
+			},
+	  	],
+  	}
 }

@@ -1,8 +1,9 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { getLocale, getLocaleUrlPrefix } from "astro-i18n-aut";
 
 const localeUrlPrefix = getLocaleUrlPrefix(Astro.url);
+export const prerender = true;
 ---
 
 <Layout title="404 | Astro starter">

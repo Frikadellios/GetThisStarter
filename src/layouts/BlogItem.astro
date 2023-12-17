@@ -1,14 +1,15 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import HeroImage from "@components/blog/HeroImage.astro";
-import Layout from "@layouts/Layout.astro";
-import Title from "@components/blog/BlogHeader.astro";
-import Comments from "@components/blog/Comments.astro";
+import HeroImage from "@/components/blog/HeroImage.astro";
+import Layout from "@/layouts/Layout.astro";
+import Title from "@/components/blog/BlogHeader.astro";
+import Comments from "@/components/blog/Comments.astro";
 import "@styles/globals.css";
 
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props as Props;
+export const prerender = true;
 ---
 
 <Layout title={title} description={description}>

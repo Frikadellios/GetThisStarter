@@ -3,10 +3,10 @@
  */
 
 import { getLocale } from "astro-i18n-aut";
-import { DEFAULT_LOCALE, LOCALES } from "../consts";
+import { DEFAULT_LOCALE, LOCALES } from "@/consts";
 
-import it from "@locales/it.json";
-import en from "@locales/en.json";
+import it from "@/locales/it.json";
+import en from "@/locales/en.json";
 
 const handler = {
 	get(target: any, prop: any, receiver: any) {
@@ -59,3 +59,5 @@ export function localizePath(link: string | URL, astroUrl: string | URL): string
 
 	return localizedLink;
 }
+
+export const prerender = true;

@@ -27,3 +27,5 @@ export const get: APIRoute = async function get({ site }) {
 		statusText: "OK",
 	});
 };
+
+export const prerender = true;

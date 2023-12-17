@@ -8,6 +8,7 @@ import { DEFAULT_LOCALE, LOCALES, SITE_URL } from "./src/consts";
 import sveltiaCMS from "astro-sveltia-cms";
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
+import partytown from "@astrojs/partytown";
 const defaultLocale = DEFAULT_LOCALE;
 const locales = LOCALES;
 
@@ -15,7 +16,7 @@ const locales = LOCALES;
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
-  output: "server",
+  output: 'hybrid',
   trailingSlash: "always",
   build: {
     format: "directory"
@@ -40,6 +41,11 @@ export default defineConfig({
     locales,
     defaultLocale,
     exclude: ["pages/api/**/*", "pages/rss.xml.ts", "pages/[locale]/rss.xml.ts"]
-  }), react()],
+  }), react(), partytown({
+    config: {
+      forward: ['dataLayer.push'],
+      debug: false
+    }
+  }),],
   adapter: cloudflare()
 });

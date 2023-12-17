@@ -1,10 +1,11 @@
 ---
 // import translations
-import translations from "@utils/t.ts";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/Container.astro";
+import translations from "@/utils/t.ts";
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/Container.astro";
 
 const t = translations(Astro.url);
+export const prerender = true;
 ---
 
 <Layout>
