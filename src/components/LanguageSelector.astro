@@ -25,7 +25,7 @@ const urlWithoutLocalePrefix = getUrlWithoutLocale(Astro.url);
 
 <select
 	aria-label="Change language"
-	class="cursor-pointer focus-visible:outline-none bg-background text-foreground"
+	class="cursor-pointer bg-background text-foreground focus-visible:outline-none"
 	x-data="dropdownData"
 	x-on:change="changePage($event)">
 	{

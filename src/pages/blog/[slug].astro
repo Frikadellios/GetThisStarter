@@ -6,7 +6,7 @@ import { DEFAULT_LOCALE } from "@/consts";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", (entry) => entry.slug.startsWith(DEFAULT_LOCALE + "/"));
-	
+
 	return posts.map((post) => ({
 		params: { slug: post.slug.replace(`${DEFAULT_LOCALE}/`, "") },
 	}));
@@ -29,8 +29,6 @@ if (!post) {
 	});
 }
 const { Content } = await post.render();
-
-
 ---
 
 <BlogItem {...post.data}>

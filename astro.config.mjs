@@ -13,40 +13,48 @@ import sveltiaCms from "astro-sveltia-cms";
 const defaultLocale = DEFAULT_LOCALE;
 const locales = LOCALES;
 
-
 // https://astro.build/config
 export default defineConfig({
-  site: SITE_URL,
-  output: 'server',
-  trailingSlash: "always",
-  build: {
-    format: "directory"
-  },
-  vite: {
-    logLevel: "error",
-    define: {
-      __DATE__: `'${new Date()}'`
-    }
-  },
-  integrations: [mdx(), sitemap({
-    i18n: {
-      locales,
-      defaultLocale
-    },
-    filter: filterSitemapByDefaultLocale({
-      defaultLocale
-    })
-  }), tailwind({
-    applyBaseStyles: false
-  }), alpinejs(), i18n({
-    locales,
-    defaultLocale,
-    exclude: ["pages/api/**/*", "pages/rss.xml.ts", "pages/[locale]/rss.xml.ts"]
-  }), react(), partytown({
-    config: {
-      forward: ['dataLayer.push'],
-      debug: false
-    }
-  }), sveltiaCms()],
-  adapter: cloudflare()
+	site: SITE_URL,
+	output: "server",
+	trailingSlash: "always",
+	build: {
+		format: "directory",
+	},
+	vite: {
+		logLevel: "error",
+		define: {
+			__DATE__: `'${new Date()}'`,
+		},
+	},
+	integrations: [
+		mdx(),
+		sitemap({
+			i18n: {
+				locales,
+				defaultLocale,
+			},
+			filter: filterSitemapByDefaultLocale({
+				defaultLocale,
+			}),
+		}),
+		tailwind({
+			applyBaseStyles: false,
+		}),
+		alpinejs(),
+		i18n({
+			locales,
+			defaultLocale,
+			exclude: ["pages/api/**/*", "pages/rss.xml.ts", "pages/[locale]/rss.xml.ts"],
+		}),
+		react(),
+		partytown({
+			config: {
+				forward: ["dataLayer.push"],
+				debug: false,
+			},
+		}),
+		sveltiaCms(),
+	],
+	adapter: cloudflare(),
 });

@@ -1,40 +1,38 @@
 {
 	"extends": "astro/tsconfigs/base",
-  	"compilerOptions": {
-    	"types": [
-      	"bun-types"
-    	],
-    	"lib": [
-      		 "ESNext",
-      		 "DOM",
-      		 "DOM.Iterable"
-    		 ],
-    	"module": "esnext",
-    	"target": "esnext",
-    	"moduleResolution": "bundler",
-    	"noEmit": true,
-    	"allowImportingTsExtensions": true,
-    	"moduleDetection": "force",
-    	"jsx": "react-jsx",
-    	"allowJs": true,
-    	"strict": true,
-    	"forceConsistentCasingInFileNames": true,
-    	"skipLibCheck": true,
-    	"composite": true,
-    	"downlevelIteration": true,
-    	"allowSyntheticDefaultImports": true,
-    	"strictNullChecks": true,
-    	"baseUrl": ".",
-    	"paths": {
-      		"@/*": ["./src/*"],
+	"compilerOptions": {
+		"types": ["bun-types", "astro/client"],
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"module": "esnext",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"target": "esnext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"allowImportingTsExtensions": true,
+		"moduleDetection": "force",
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"composite": true,
+		"downlevelIteration": true,
+		"allowSyntheticDefaultImports": true,
+		"jsxImportSource": "react",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"],
 			"@assets/*": ["./src/assets/*"]
-   		 },
-    	"verbatimModuleSyntax": true,
-    	"jsxImportSource": "react",
+		},
+		"verbatimModuleSyntax": true,
 		"plugins": [
 			{
-		  	 "name": "@astrojs/ts-plugin"
-			},
-	  	],
-  	}
+				"name": "@astrojs/ts-plugin"
+			}
+		]
+	},
+	"include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
+	"exclude": ["node_modules", "dist"]
 }
