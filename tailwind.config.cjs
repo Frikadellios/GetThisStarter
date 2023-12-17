@@ -77,7 +77,7 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate"), require.resolve("prettier-plugin-astro"), require('@tailwindcss/typography'),],
+	plugins: [require("tailwindcss-animate"), require.resolve("prettier-plugin-astro"), require('@tailwindcss/typography')],
 	overrides: [
 		{
 			files: "*.astro",

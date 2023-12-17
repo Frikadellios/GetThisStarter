@@ -3,10 +3,11 @@
  */
 
 import { getLocale } from "astro-i18n-aut";
-import { DEFAULT_LOCALE, LOCALES } from "@/consts";
+import { DEFAULT_LOCALE, LOCALES } from "../consts";
 
-import it from "@/locales/it.json";
+import uk from "@/locales/uk.json";
 import en from "@/locales/en.json";
+import ru from "@/locales/ru.json";
 
 const handler = {
 	get(target: any, prop: any, receiver: any) {
@@ -14,8 +15,9 @@ const handler = {
 	},
 };
 
-const it_proxy = new Proxy(it, handler);
+const uk_proxy = new Proxy(uk, handler);
 const en_proxy = new Proxy(en, handler);
+const ru_proxy = new Proxy(ru, handler);
 
 export const defaultLocale = DEFAULT_LOCALE;
 export const locales = LOCALES;
@@ -29,10 +31,12 @@ export default function t(astroUrl: URL): Locales {
 	let locale = getLocale(astroUrl);
 
 	switch (locale) {
-		case "it":
-			return it_proxy as Locales;
-		default:
+		case "en":
 			return en_proxy as Locales;
+		case "ru":
+			return ru_proxy as Locales;
+		default:
+			return uk_proxy as Locales;
 	}
 }
 
