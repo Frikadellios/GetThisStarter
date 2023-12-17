@@ -9,6 +9,7 @@ import sveltiaCMS from "astro-sveltia-cms";
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import partytown from "@astrojs/partytown";
+import sveltiaCms from "astro-sveltia-cms";
 const defaultLocale = DEFAULT_LOCALE;
 const locales = LOCALES;
 
@@ -16,7 +17,7 @@ const locales = LOCALES;
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
-  output: 'hybrid',
+  output: 'server',
   trailingSlash: "always",
   build: {
     format: "directory"
@@ -35,7 +36,7 @@ export default defineConfig({
     filter: filterSitemapByDefaultLocale({
       defaultLocale
     })
-  }), sveltiaCMS(), tailwind({
+  }), tailwind({
     applyBaseStyles: false
   }), alpinejs(), i18n({
     locales,
@@ -46,6 +47,6 @@ export default defineConfig({
       forward: ['dataLayer.push'],
       debug: false
     }
-  }),],
+  }), sveltiaCms()],
   adapter: cloudflare()
 });

@@ -7,16 +7,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zankhq/astro-starter.git"
+    "url": "https://github.com/Frikadellios/GetThisStarter.git"
   },
-  "bugs": "https://github.com/zankhq/astro-starter/issues",
-  "homepage": "https://github.com/zankhq/astro-starter",
+  "bugs": "https://github.com/Frikadellios/GetThisStarter/issues",
+  "homepage": "https://github.com/Frikadellios/GetThisStarter",
   "files": [
     "*"
   ],
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "cd node_modules/sharp && bun install && cd ../../ && astro build",
     "build": "npm run pwa:generate-assets && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -40,7 +40,7 @@
     "alpinejs": "^3.13.3",
     "astro": "4.0.6",
     "astro-i18n-aut": "^0.5.0",
-    "astro-sveltia-cms": "^0.0.10",
+    "astro-sveltia-cms": "^0.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.16",
