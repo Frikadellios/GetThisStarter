@@ -15,10 +15,10 @@
     "*"
   ],
   "scripts": {
-    "dev": "astro check --watch && astro dev --verbose",
+    "dev": "astro dev --verbose",
     "start": "cd node_modules/sharp && bun install && cd ../../ && bun --bun run build",
     "build": "npm run pwa:generate-assets && astro build --force",
-    "preview": "astro preview",
+    "preview": "astro preview --watch",
     "astro": "astro",
     "pwa:generate-assets": "pwa-assets-generator --preset minimal public/logo.svg"
   },
